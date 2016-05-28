@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -52,7 +54,7 @@ public class DemoCRUDOperations {
 
         // 4. create a query statement
         PreparedStatement pSt = conn.prepareStatement("INSERT INTO USERS (NAME, PASSWORD) VALUES (?,?)");
-        pSt.setString(1, "ionel");
+        pSt.setString(1, "ionel't");
         pSt.setString(2, "password1");
 
         // 5. execute a prepared statement
@@ -79,14 +81,32 @@ public class DemoCRUDOperations {
         Statement st = conn.createStatement();
 
         // 5. execute a query
-        ResultSet rs = st.executeQuery("SELECT name,password FROM users");
+
+        String value = "o'conner";
+        String v= value.replace("'","''");
+        int age=45;
+
+        String q = "SELECT name,password FROM users where name like '%"+value+"%' and age>"+age;
+
+        System.out.println(q);
+        ResultSet rs = st.executeQuery(q);
 
         // 6. iterate the result set and print the values
+
+        List<Agenda> l = new ArrayList<>();
         while (rs.next()) {
             System.out.print(rs.getString("name").trim());
             System.out.print("---");
             System.out.println(rs.getString("password").trim());
+
+            Agenda a = new Agenda();
+            a.setNume(rs.getString("name").trim());
+            a.setPassword(rs.getString("password").trim());
+            l.add(a);
+
         }
+
+        System.out.println(l.size());
 
         // 7. close the objects
         rs.close();
