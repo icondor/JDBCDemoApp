@@ -39,7 +39,7 @@ public class DemoCRUDOperations {
 
     private static void demoCreate() throws ClassNotFoundException, SQLException {
 
-        // 1. load driver
+        // 1. load driver, no longer needed in new versions of JDBC
         Class.forName("org.postgresql.Driver");
 
         // 2. define connection params to db
@@ -64,7 +64,7 @@ public class DemoCRUDOperations {
     }
 
     private static void demoRead() throws ClassNotFoundException, SQLException {
-        // 1. load driver
+               // 1. load driver, no longer needed in new versions of JDBC
         Class.forName("org.postgresql.Driver");
 
         // 2. define connection params to db
@@ -96,7 +96,7 @@ public class DemoCRUDOperations {
 
     private static void demoUpdate() throws ClassNotFoundException, SQLException {
 
-        // 1. load driver
+                // 1. load driver, no longer needed in new versions of JDBC
         Class.forName("org.postgresql.Driver");
 
         // 2. define connection params to db
@@ -124,7 +124,7 @@ public class DemoCRUDOperations {
 
     private static void demoDelete() throws ClassNotFoundException, SQLException {
 
-        // 1. load driver
+               // 1. load driver, no longer needed in new versions of JDBC
         Class.forName("org.postgresql.Driver");
 
         // 2. define connection params to db
